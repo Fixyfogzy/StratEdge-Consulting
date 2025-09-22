@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - StratEdge Consulting</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/services.css">
+    <style>
+       
+           .page-header {
+            background: linear-gradient(rgba(10, 31, 68, 0.8), rgba(10, 31, 68, 0.8)), url('images/services-page.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #FFFFFF;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #0A1F44;
+            background-color: #FFFFFF;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #0A1F44;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Mobile-First Services Navigation */
+        .services-nav {
+            margin-bottom: 2rem;
+        }
+        
+        .services-select {
+            display: none;
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #0A1F44;
+            border-radius: 8px;
+            background-color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .services-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tab {
+            padding: 1rem 1.5rem;
+            background-color: #F5F6FA;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        .tab.active {
+            background-color: #C9A227;
+            color: #FFFFFF;
+        }
+        
+        .tab:hover:not(.active) {
+            background-color: #e0e0e0;
+        }
+        
+        /* Service Content */
+        .service-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .service-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .service-detail {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+        
+        .service-info {
+            flex: 2;
+        }
+        
+        .service-info h3 {
+            font-size: 2rem;
+            color: #0A1F44;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-info p {
+            margin-bottom: 1.5rem;
+            color: #444;
+        }
+        
+        .benefits-list {
+            margin: 2rem 0;
+        }
+        
+        .benefits-list h4 {
+            color: #0A1F44;
+            margin-bottom: 1rem;
+        }
+        
+        .benefits-list ul {
+            list-style-type: none;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefits-list li i {
+            color: #C9A227;
+            margin-right: 0.8rem;
+            margin-top: 0.3rem;
+        }
+        
+        .service-sidebar {
+            flex: 1;
+            background-color: #F5F6FA;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-sidebar h4 {
+            color: #0A1F44;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .sidebar-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .sidebar-item h5 {
+            color: #C9A227;
+            margin-bottom: 0.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #C9A227;
+            color: #FFFFFF;
+            padding: 0.8rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .btn:hover {
+            background-color: #b08e20;
+        }
+        
+        /* Mobile Optimizations */
+        @media (max-width: 968px) {
+            .service-detail {
+                flex-direction: column;
+            }
+            
+            .service-sidebar {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-tabs {
+                display: none;
+            }
+            
+            .services-select {
+                display: block;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .service-info h3 {
+                font-size: 1.7rem;
+            }
+            
+            .tab {
+                min-width: 120px;
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-info h3 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+            }
+            
+            .service-sidebar {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Compact mobile view for very small screens */
+        @media (max-width: 360px) {
+            .services-select {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .service-info h3 {
+                font-size: 1.3rem;
+            }
+            
+            .service-sidebar {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Strat<span>Edge</span></div>
+            
+            <div class="hamburger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Our Services</h1>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Our Services</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview">
+        <div class="container">
+            <div class="section-title">
+                <h2>Comprehensive Consulting Solutions</h2>
+                <p>We offer tailored consulting services designed to address your most critical business challenges and drive sustainable growth.</p>
+            </div>
+            
+            <div class="overview-content">
+                <div class="overview-text">
+                    <h3>Expert Guidance for Business Transformation</h3>
+                    <p>At StratEdge Consulting, we understand that every business faces unique challenges. Our comprehensive suite of consulting services is designed to provide targeted solutions that deliver measurable results.</p>
+                    <p>With over a decade of experience serving businesses across Nigeria and West Africa, we've developed proven methodologies that combine deep industry knowledge with innovative thinking.</p>
+                    <p>Whether you're looking to refine your strategy, optimize operations, or embark on digital transformation, our team of experts is ready to guide you every step of the way.</p>
+                </div>
+                <div class="overview-image">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Consulting Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <section class="services-detailed">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Consulting Services</h2>
+                <p>Comprehensive solutions tailored to your business needs</p>
+            </div>
+            
+            <!-- Mobile-optimized services navigation -->
+            <div class="services-nav">
+                <select class="services-select" id="services-select">
+                    <option value="strategy">Strategic Planning</option>
+                    <option value="operations">Operations Optimization</option>
+                    <option value="digital">Digital Transformation</option>
+                    <option value="hr">HR Consulting</option>
+                    <option value="finance">Financial Advisory</option>
+                </select>
+                
+                <div class="services-tabs">
+                    <button class="tab active" data-tab="strategy">Strategic Planning</button>
+                    <button class="tab" data-tab="operations">Operations Optimization</button>
+                    <button class="tab" data-tab="digital">Digital Transformation</button>
+                    <button class="tab" data-tab="hr">HR Consulting</button>
+                    <button class="tab" data-tab="finance">Financial Advisory</button>
+                </div>
+            </div>
+            
+            <!-- Strategy Service -->
+            <div class="service-content active" id="strategy-content">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>Strategic Planning</h3>
+                        <p>Our strategic planning service helps organizations define their direction and make decisions on allocating resources to pursue this strategy. We work with you to develop a clear roadmap that aligns with your vision and market opportunities.</p>
+                        
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Clear direction and focused priorities</li>
+                                <li><i class="fas fa-check"></i> Improved decision-making processes</li>
+                                <li><i class="fas fa-check"></i> Enhanced competitive positioning</li>
+                                <li><i class="fas fa-check"></i> Better resource allocation</li>
+                                <li><i class="fas fa-check"></i> Increased organizational alignment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-sidebar">
+                        <h4>Service Details</h4>
+                        
+                        <div class="sidebar-item">
+                            <h5>Duration</h5>
+                            <p>4-12 weeks depending on complexity</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Deliverables</h5>
+                            <p>Strategic plan document, Implementation roadmap, Performance metrics</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Ideal For</h5>
+                            <p>Businesses seeking growth, entering new markets, or facing competitive challenges</p>
+                        </div>
+                        
+                        <a href="#contact" class="btn">Request a Proposal</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Operations Service -->
+            <div class="service-content" id="operations-content">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>Operations Optimization</h3>
+                        <p>Our operations optimization service focuses on improving your business processes to increase efficiency, reduce costs, and enhance customer satisfaction. We analyze your current operations and identify opportunities for improvement.</p>
+                        
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Reduced operational costs</li>
+                                <li><i class="fas fa-check"></i> Improved process efficiency</li>
+                                <li><i class="fas fa-check"></i> Enhanced customer satisfaction</li>
+                                <li><i class="fas fa-check"></i> Increased productivity</li>
+                                <li><i class="fas fa-check"></i> Better quality control</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-sidebar">
+                        <h4>Service Details</h4>
+                        
+                        <div class="sidebar-item">
+                            <h5>Duration</h5>
+                            <p>8-16 weeks depending on scope</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Deliverables</h5>
+                            <p>Process maps, Improvement recommendations, Implementation plan</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Ideal For</h5>
+                            <p>Businesses experiencing inefficiencies, high costs, or quality issues</p>
+                        </div>
+                        
+                        <a href="#contact" class="btn">Request a Proposal</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Digital Transformation Service -->
+            <div class="service-content" id="digital-content">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>Digital Transformation</h3>
+                        <p>Our digital transformation service helps businesses leverage technology to improve processes, enhance customer experiences, and create new value propositions. We guide you through the journey of becoming a digital-first organization.</p>
+                        
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Enhanced customer experiences</li>
+                                <li><i class="fas fa-check"></i> Increased operational efficiency</li>
+                                <li><i class="fas fa-check"></i> New revenue streams</li>
+                                <li><i class="fas fa-check"></i> Improved decision-making with data</li>
+                                <li><i class="fas fa-check"></i> Future-proofed business model</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-sidebar">
+                        <h4>Service Details</h4>
+                        
+                        <div class="sidebar-item">
+                            <h5>Duration</h5>
+                            <p>12-24 weeks for initial transformation</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Deliverables</h5>
+                            <p>Digital strategy, Technology roadmap, Change management plan</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Ideal For</h5>
+                            <p>Businesses looking to modernize operations or create digital products/services</p>
+                        </div>
+                        
+                        <a href="#contact" class="btn">Request a Proposal</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- HR Consulting Service -->
+            <div class="service-content" id="hr-content">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>HR Consulting</h3>
+                        <p>Our HR consulting services help organizations build high-performing teams and create workplace environments that attract, develop, and retain top talent. We provide solutions across the entire employee lifecycle.</p>
+                        
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Improved talent acquisition</li>
+                                <li><i class="fas fa-check"></i> Enhanced employee engagement</li>
+                                <li><i class="fas fa-check"></i> Reduced turnover</li>
+                                <li><i class="fas fa-check"></i> Effective performance management</li>
+                                <li><i class="fas fa-check"></i> Compliance with labor regulations</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-sidebar">
+                        <h4>Service Details</h4>
+                        
+                        <div class="sidebar-item">
+                            <h5>Duration</h5>
+                            <p>Varies by project scope</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Deliverables</h5>
+                            <p>HR policy documents, Training materials, Implementation guides</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Ideal For</h5>
+                            <p>Businesses experiencing growth, turnover issues, or needing HR structure</p>
+                        </div>
+                        
+                        <a href="#contact" class="btn">Request a Proposal</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Financial Advisory Service -->
+            <div class="service-content" id="finance-content">
+                <div class="service-detail">
+                    <div class="service-info">
+                        <h3>Financial Advisory</h3>
+                        <p>Our financial advisory services help businesses make informed financial decisions, secure funding, and optimize financial performance. We provide expertise in financial planning, analysis, and strategy.</p>
+                        
+                        <div class="benefits-list">
+                            <h4>Key Benefits</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Improved financial decision-making</li>
+                                <li><i class="fas fa-check"></i> Better cash flow management</li>
+                                <li><i class="fas fa-check"></i> Access to funding opportunities</li>
+                                <li><i class="fas fa-check"></i> Enhanced financial reporting</li>
+                                <li><i class="fas fa-check"></i> Strategic financial planning</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="service-sidebar">
+                        <h4>Service Details</h4>
+                        
+                        <div class="sidebar-item">
+                            <h5>Duration</h5>
+                            <p>Varies by project scope</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Deliverables</h5>
+                            <p>Financial models, Investment memoranda, Funding strategies</p>
+                        </div>
+                        
+                        <div class="sidebar-item">
+                            <h5>Ideal For</h5>
+                            <p>Businesses seeking funding, planning investments, or needing financial restructuring</p>
+                        </div>
+                        
+                        <a href="#contact" class="btn">Request a Proposal</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Consulting Process</h2>
+                <p>We follow a structured approach to ensure we deliver maximum value to your organization</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Discovery & Assessment</h4>
+                    <p>We begin by thoroughly understanding your business, challenges, and objectives through interviews, data analysis, and workshops.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Strategy Development</h4>
+                    <p>Based on our assessment, we develop tailored strategies and solutions that address your specific needs and opportunities.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Implementation Planning</h4>
+                    <p>We create detailed implementation plans with clear milestones, responsibilities, and success metrics.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Execution & Support</h4>
+                    <p>We work alongside your team to implement the solutions, providing guidance, training, and support throughout the process.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Contact us today to discuss how our consulting services can help you achieve your business objectives. Our experts are ready to provide a customized proposal for your organization.</p>
+            <a href="contact.html" class="btn btn-large">Request a Proposal</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>StratEdge Consulting</h3>
+                    <p>Shaping strategies. Driving growth.</p>
+                    <p>Lagos, Nigeria</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="services.html">Services</a>
+                    <a href="insights.html">Insights</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <a href="services.html">Strategic Planning</a>
+                    <a href="services.html">Operations Optimization</a>
+                    <a href="services.html">Digital Transformation</a>
+                    <a href="services.html">HR Consulting</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@stratedge.com</p>
+                    <p>Phone: +234 123 456 7890</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 StratEdge Consulting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('toggle');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('toggle');
+            });
+        });
+        
+        // Sticky navbar effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 10) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+        
+        // Services navigation functionality
+        const tabs = document.querySelectorAll('.tab');
+        const serviceContents = document.querySelectorAll('.service-content');
+        const servicesSelect = document.getElementById('services-select');
+        
+        // Function to switch service
+        function switchService(tabId) {
+            // Remove active class from all tabs and contents
+            tabs.forEach(t => t.classList.remove('active'));
+            serviceContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+            
+            // Show corresponding content
+            document.getElementById(`${tabId}-content`).classList.add('active');
+            
+            // Update select dropdown
+            servicesSelect.value = tabId;
+        }
+        
+        // Tab click event
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                switchService(tabId);
+            });
+        });
+        
+        // Select change event
+        servicesSelect.addEventListener('change', () => {
+            switchService(servicesSelect.value);
+        });
+
+        
+    </script>
+</body>
+</html>
