@@ -1,0 +1,1 @@
+# StratEdge-Consulting
